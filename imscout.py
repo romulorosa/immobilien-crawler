@@ -226,3 +226,24 @@ class ImmobilienScoutCrawler:
             parsed_htmls.append({'general_data': immobilie_data, 'geo_data': geo_data})
 
         return parsed_htmls
+
+    def run(self):
+        htmls = self.get_htmls()
+        parsed = self.parse_htmls(htmls)
+        immobilies = [Immobile(d, ScoreCalculator()) for d in parsed]
+        for imo in immobilies:
+            imo.calculate_score()
+
+        immobilies = sorted(immobilies, reverse=True)
+
+        txtTable = Texttable(max_width=240)
+        txtTable.set_cols_dtype(['i', 'f', 't', 'f', 'f', 'i', 'f', 'i', 't', 'i', 'i', 'i'])
+        txtTable.add_row([
+            'Id', 'Score', 'Address', 'Total rent (€)', 'Base rent (€)', 'Constructed',
+            'Living Space', 'Rooms', 'Condition', 'Train Stations', 'Subway Stations',
+            'Supermarkets'
+        ])
+
+        for imo in immobilies:
+            txtTable.add_row(imo.listfy())
+        print(txtTable.draw())

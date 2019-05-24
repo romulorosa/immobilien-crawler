@@ -1,8 +1,9 @@
 # immobilien-crawler
-This is a simple crawler to create a score ranking of immobilier 
+
 
 ## About
-This script was used as a exercise to learn a lit bit more about `asyncio` lib. 
+This is a simple crawler to create a score ranking of immobilier.
+The script was used as a exercise to learn a lit bit more about `asyncio` lib. 
 It has a simple crawler which know how to parse pages from https://www.immobilienscout24.de and also creates a ranking
 based on a very rudimentar score calculator (tunned for my necessities).
 

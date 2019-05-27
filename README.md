@@ -11,7 +11,30 @@ The script try to combine information from immobilienscout24 and alson Google Pl
 
 For be able to retrieve informations from Google Places, you might want to sing up to development platform for creating an API KEY.
 
-## How to use it
+## Setting up the environment
+
+*Cloning the repo*
+```bash
+mkdir ~/imscout
+cd ~/imscout
+git clone git@github.com:romulorosa/immobilien-crawler.git
+```
+
+### Using python virtual environment
+
+This code was written and tested on Python >= 3.5. Make sure you have at least this version installed on your computer.
+
+*Creating virtualenv*
+```bash
+virtualenv -p /usr/bin/python3.7 ~/venvs/imscout
+source ~/venvs/imscout/bin/activate
+```
+
+*Installing Python requirements*
+```bash
+pip install -r requirements.txt
+```
+
 If you want to run this script as it is, you just need to get the URLS from your search at https://www.immobilienscout24.de and put them in a array. Here is one example:
 
 ```python
@@ -21,6 +44,30 @@ crawler = ImmobilienScoutCrawler([
 ])
 
 crawler.run()
+```
+
+You can also input the urls from stdin
+```bash
+python imscout.py https://www.immobilienscout24.de/expose/111667003 https://www.immobilienscout24.de/expose/111676616
+```
+
+### Using Docker
+
+If you are not familiar with Python environments you might want run it through Docker containers.
+
+*The first step is build the image*
+```bash
+docker build -t immobilien-crawler .
+```
+
+*Now you are able to run a container*
+```bash
+docker run -it --rm immobilien-crawler python imscout.py https://www.immobilienscout24.de/expose/111667003 https://www.immobilienscout24.de/expose/109702102
+```
+
+*You either can specify your Google API key as a env var*
+```bash
+docker run -it --env GOOGLE_MAPS_API_KEY=<your_api_key_here> --rm immobilien-crawler python imscout.py https://www.immobilienscout24.de/expose/111667003 https://www.immobilienscout24.de/expose/109702102
 ```
 
 ## How to tune metrics

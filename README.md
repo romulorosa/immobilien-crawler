@@ -9,7 +9,7 @@ based on a very rudimentar score calculator (tunned for my necessities).
 
 The script try to combine information from immobilienscout24 and alson Google Places. The score is based on simple metrics, such as living space, number of rooms, rent, etc (from immobilienscout24), supermarkets, train station and subway stations (from Google Places).
 
-For be able to retrieve informations from Google Places, you might want to get in the development platform for creating an API KEY.
+For be able to retrieve informations from Google Places, you might want to sing up to development platform for creating an API KEY.
 
 ## How to use it
 If you want to run this script as it is, you just need to get the URLS from your search at https://www.immobilienscout24.de and put them in a array. Here is one example:

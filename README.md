@@ -12,7 +12,6 @@ The script try to combine information from immobilienscout24 and alson Google Pl
 For be able to retrieve informations from Google Places, you might want to sing up to development platform for creating an API KEY.
 
 ### Output example
-### Output example
 ```bash
 +-----------+----------+-------------------------------------------------------+----------------+---------------+-------------+--------------+-------+-----------------+----------------+-----------------+--------------+
 | Id        | Score    | Address                                               | Total rent (€) | Base rent (€) | Constructed | Living Space | Rooms | Condition       | Train Stations | Subway Stations | Supermarkets |

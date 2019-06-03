@@ -104,7 +104,7 @@ docker build -t immobilien-crawler .
 docker run -it --rm immobilien-crawler python imscout.py https://www.immobilienscout24.de/expose/111667003 https://www.immobilienscout24.de/expose/109702102
 ```
 
-*You either can specify your Google API key as a env var*
+*You can specify your Google API key as a env var*
 ```bash
 docker run -it --env GOOGLE_MAPS_API_KEY=<your_api_key_here> --rm immobilien-crawler python imscout.py https://www.immobilienscout24.de/expose/111667003 https://www.immobilienscout24.de/expose/109702102
 ```
